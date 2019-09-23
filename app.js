@@ -5,6 +5,8 @@ const conditional = require('koa-conditional-get');
 const cors = require('@koa/cors');
 const morgan = require('koa-morgan');
 const bodyParser = require('koa-bodyparser');
+
+const index = require('./routes');
 const app = new Koa();
 
 const { NODE_ENV } = require('@ifaxity/env');
@@ -28,7 +30,7 @@ app.use(async (ctx, next) => {
 });
 
 if(NODE_ENV == 'production') {
-  // Trust proxy
+  // Trust
   app.proxy = true;
 
   // Apache style access.log
@@ -49,5 +51,8 @@ app.use(cors());
 // Add parser for json and urlencoded body
 // Available as ctx.request.body;
 app.use(bodyParser());
+
+// Mount routes
+app.use(index.routes());
 
 module.exports = app;
