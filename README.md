@@ -26,9 +26,20 @@ JWT_EXPIRES_IN='15m'
 JWT_MAX_AGE='1d'
 ```
 
+## Skapa sqlite databas
+
+Se till att du har sqlite3 installerad på din dator, kör sedan:
+
+```bash
+$ db
+$ sqlite3 texts.sqlite
+sqlite> .read migrate.db
+sqlite> .exit
+```
+
 ## Starta servern
 
-För att starta servern kör:
+Nu kan vi starta vår server, då kör vi:
 
 `npm run start`
 
