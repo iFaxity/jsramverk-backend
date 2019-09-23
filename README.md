@@ -26,7 +26,7 @@ JWT_EXPIRES_IN='15m'
 JWT_MAX_AGE='1d'
 ```
 
-## Starta hemsidan
+## Starta servern
 
 För att starta servern kör:
 
