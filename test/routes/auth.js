@@ -4,9 +4,8 @@ const http = require('http');
 const Auth = require('../../lib/auth');
 const { connect } = require('../../db');
 
-const { PORT } = require('@ifaxity/env');
 const app = require('../../app');
-const server = http.createServer(app.callback()).listen(PORT);
+const server = http.createServer(app.callback()).listen(3001);
 
 chai.should();
 chai.use(chaiHttp);
