@@ -4,12 +4,13 @@ node_js:
   - 12
 
 env:
-  # Server variables
-  - NODE_ENV='test'
-  - PORT=3001
-  - DB_PATH='db/test.sqlite'
-  # JWT Config
-  - JWT_SECRET='0969596893ba2b36b9e966ad81bb8546e94052301c2c081cc9c7fbf1268b8f10'
-  - JWT_ISSUER='me.faxity.se'
-  - JWT_EXPIRES_IN='15m'
-  - JWT_MAX_AGE='1d'
+  global:
+    # Server variables
+    - NODE_ENV='test'
+    - PORT=3001
+    - DB_PATH='db/test.sqlite'
+    # JWT Config
+    - JWT_SECRET='0969596893ba2b36b9e966ad81bb8546e94052301c2c081cc9c7fbf1268b8f10'
+    - JWT_ISSUER='me.faxity.se'
+    - JWT_EXPIRES_IN='15m'
+    - JWT_MAX_AGE='1d'
