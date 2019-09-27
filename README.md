@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/iFaxity/jsramverk-backend.svg?branch=master)](https://travis-ci.org/iFaxity/jsramverk-backend)
+
 ## Länk till github repo
 
 https://github.com/ifaxity/jsramverk-backend
