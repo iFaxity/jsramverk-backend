@@ -1,6 +1,8 @@
 const path = require('path');
 const sqlite = require('sqlite');
 
+const { DB_PATH } = require('@ifaxity/env');
+
 class SQLStatement {
   constructor(strings, values) {
     // Remove all newlines and all double spaces with space
@@ -16,13 +18,16 @@ class SQLStatement {
 
   // Appends another SQLStatement
   append(other) {
-    if (other instanceof SQLStatement) {
-      this.strings = this.strings.concat(other.strings);
-      this.values = this.values.concat(other.values);
-      return this;
+    if (!(other instanceof SQLStatement)) {
+      throw new ValueError('Can only append SQLStatements to a SQLStatement.');
     }
 
-    throw new ValueError('Can only append SQLStatements on a SQLStatement.');
+    const [ str, ...strings ] = other.strings;
+
+    this.strings[this.strings.length - 1] += str;
+    this.strings.push(...strings);
+    this.values = this.values.concat(other.values);
+    return this;
   }
 }
 
@@ -34,5 +39,5 @@ exports.sql = function sql(strings, ...values) {
 };
 
 exports.connect = function connect() {
-  return sqlite.open(path.join(__dirname, '../db/texts.sqlite')).catch(console.error);
+  return sqlite.open(path.join(__dirname, '../', DB_PATH)).catch(console.error);
 };

@@ -29,15 +29,15 @@ app.use(async (ctx, next) => {
   }
 });
 
-if(NODE_ENV == 'production') {
-  // Trust
+if (NODE_ENV == 'production') {
+  // Trust nginx proxy
   app.proxy = true;
 
   // Apache style access.log
   app.use(morgan('combined', {
     stream: fs.createWriteStream(`${__dirname}/access.log`, { flags: 'a' }),
   }));
-} else {
+} else if (NODE_ENV == 'development') {
   // In development we use stdout instead with less info
   app.use(morgan('dev'));
 }

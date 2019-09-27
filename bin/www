@@ -1,14 +1,12 @@
 #!/usr/bin/env node
 const http = require('http');
-const path = require('path');
 
 // Parse the .env variables
 const env = require('@ifaxity/env');
 env.config({
-  path: path.join(__dirname, '../.env'),
   defaults: {
     PORT: 3000,
-    NODE_ENV: 'development',
+    NODE_ENV: 'development'
   },
 });
 const { PORT } = env;

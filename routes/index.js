@@ -30,7 +30,8 @@ router.get('/', ctx => {
 
 /* Routes for reports. */
 router.get('/reports/week/:id', async ctx => {
-  const report = await Report.read(ctx.params.id);
+  const id = parseInt(ctx.params.id);
+  const report = await Report.read(id);
 
   if (report) {
     report.content = markdown.render(report.content);
@@ -42,7 +43,8 @@ router.get('/reports/week/:id', async ctx => {
   }
 });
 router.get('/reports/week/:id/edit', Auth.middleware, async ctx => {
-  const report = await Report.read(ctx.params.id);
+  const id = parseInt(ctx.params.id);
+  const report = await Report.read(id);
 
   if (report) {
     ctx.body = {
@@ -69,7 +71,7 @@ router.post('/reports', Auth.middleware, async ctx => {
     await Report.create({ id, content });
     message = 'Rapporten skapades';
   } else {
-    await Report.update({ id, content });
+    await Report.update(id, { id, content });
     message = 'Rapporten uppdaterades';
   }
 
