@@ -5,9 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "pretest": "bash db/reset_test.sh",
-    "test": "nyc --reporter=html --reporter=text mocha --file test/setup.js test/**/*.js",
-    "report-coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "report-codecov": "nyc report --reporter=lcov > coverage.lcov && codecov"
+    "test": "nyc --reporter=html --reporter=text --reporter=clover mocha --file test/setup.js test/**/*.js"
   },
   "dependencies": {
     "@ifaxity/env": "^1.0.4",
