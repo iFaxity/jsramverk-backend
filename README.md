@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/iFaxity/jsramverk-backend.svg?branch=master)](https://travis-ci.org/iFaxity/jsramverk-backend)
-
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/iFaxity/jsramverk-backend/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/iFaxity/jsramverk-backend/?branch=master)
-
 [![Code Coverage](https://scrutinizer-ci.com/g/iFaxity/jsramverk-backend/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/iFaxity/jsramverk-backend/?branch=master)
 
 ## Länk till github repo
