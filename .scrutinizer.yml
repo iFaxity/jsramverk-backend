@@ -10,11 +10,10 @@ build:
       JWT_ISSUER: 'me.faxity.se'
       JWT_EXPIRES_IN: '15m'
       JWT_MAX_AGE: '1d'
-  nodes:
-    coverage:
-      tests:
-        override:
-          - command: yarn test
-            coverage:
-              file: coverage/clover.xml
-              format: clover
+
+  tests:
+    override:
+      - command: yarn test
+        coverage:
+          file: coverage/clover.xml
+          format: clover
