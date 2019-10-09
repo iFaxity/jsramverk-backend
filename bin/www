@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const http = require('http');
+const ws = require('../lib/chat');
 
 // Parse the .env variables
 const env = require('@ifaxity/env');
@@ -15,11 +16,13 @@ const { PORT } = env;
 const app = require('../app');
 const server = http.createServer(app.callback());
 
-server.listen(PORT);
+// Setup websocket server
+ws(server);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
+server.listen(PORT);
 server.on('error', onError);
 server.on('listening', onListening);
 
