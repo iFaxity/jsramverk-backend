@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node bin/www",
     "pretest": "bash db/reset_test.sh",
     "test": "nyc --reporter=text --reporter=clover mocha --file test/setup.js test/**/*.js"
   },
@@ -21,6 +21,7 @@
     "koa-etag": "^3.0.0",
     "koa-morgan": "^1.0.1",
     "markdown-it": "^10.0.0",
+    "mongodb": "^3.3.2",
     "socket.io": "^2.3.0",
     "sqlite": "^3.0.3"
   },
